@@ -30,7 +30,9 @@ feature 'landing page' do
       click_on 'Login'
     end
     expect(page).to have_content("Welcome #{user.email}")
-
+    within('.navbar') do
+      expect(page).to have_link('Add Media')
+    end
   end
 
 

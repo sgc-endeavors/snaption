@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141125165652) do
   create_table "captions", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
-    t.integer  "photo_id"
+    t.integer  "medium_id"
     t.integer  "thumbs_up"
     t.integer  "thumbs_down"
     t.datetime "created_at"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20141125165652) do
     t.datetime "updated_at"
   end
 
-  create_table "photos", force: true do |t|
+  create_table "media", force: true do |t|
     t.string   "categories"
     t.integer  "user_id"
-    t.string   "s3_image_loc"
+    t.string   "s3_media_loc"
     t.boolean  "inactive"
     t.datetime "created_at"
     t.datetime "updated_at"

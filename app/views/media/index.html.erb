@@ -1,0 +1,16 @@
+<%= @media.each do |medium| %>
+
+<%= image_tag medium.s3_media_loc.to_s %><br/>
+
+
+  <%= form_for medium.captions.new, url: medium_captions_path(medium) do |f| %>
+    <%= f.text_area :title %>
+    <br/>
+    <%= f.submit "Submit", class: "caption-submitter" %>
+  <% end %>
+  <% medium.captions.each do |caption| %>
+    <%= caption.title %><br/>
+  <% end %>
+
+
+<% end %>

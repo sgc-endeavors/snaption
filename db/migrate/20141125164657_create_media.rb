@@ -1,9 +1,9 @@
-class CreatePhotos < ActiveRecord::Migration
+class CreateMedia < ActiveRecord::Migration
   def change
-    create_table :photos do |t|
+    create_table :media do |t|
       t.string :categories
       t.integer :user_id
-      t.string :s3_image_loc
+      t.string :s3_media_loc
       t.boolean :inactive
       t.timestamps
     end

@@ -13,3 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+
+  $('.caption-submitter').on('click', function(event) {
+    event.preventDefault()
+    var mediumID = ""
+    var captionTitle = "I rule"
+    
+    var postCaptionPromise = $.post("/new_medium_caption" + mediumID, {title: captionTitle})
+
+
+  })
+
+})
+

@@ -1,0 +1,7 @@
+<%=image_tag @medium.s3_media_loc.to_s%>
+
+<%= form_for @medium.captions.new, url: medium_captions_path(@medium) do |f| %>
+  <%= f.text_area :title %>
+  <br/>
+  <%= f.submit "Submit" %>
+<% end %>
