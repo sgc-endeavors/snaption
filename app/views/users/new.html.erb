@@ -1,0 +1,25 @@
+
+<div id='new-user-signup'>
+
+<%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+      <!--<div class="errors">< %= @user.errors[:email].first if @user.errors[:email].any? %></div>-->
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.text_field :password, type: "password", class: "form-control" %>
+      <!--<div class="errors">< %= @user.errors[:password].first if @user.errors[:password].any? %></div>-->
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Submit", class: "button button-submit", data: {disable_with: "Please Wait..."} %>
+      <%= link_to "Cancel", root_path %>
+    </div>
+
+
+  <% end %>
+
+</div>
