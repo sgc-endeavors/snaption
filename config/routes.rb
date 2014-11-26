@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'media#index'
 
   resources :users, only: [:new, :create]
-  resources :media, only: [:new, :create] do
+  resources :media, only: [:new, :create, :index] do
     resources :captions, only: [:create, :new]
   end
 

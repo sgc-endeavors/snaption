@@ -18,11 +18,25 @@ $(document).ready(function() {
 
   $('.caption-submitter').on('click', function(event) {
     event.preventDefault()
-    var mediumID = ""
-    var captionTitle = "I rule"
-    
-    var postCaptionPromise = $.post("/new_medium_caption" + mediumID, {title: captionTitle})
 
+    var mediumID = $('.caption-submitter').attr('data-medium-id')
+    var captionTitle = $(this).siblings('textarea').val()
+
+    var postCaptionPromise = $.post('/media/' + mediumID + '/captions', {caption: {title: captionTitle}})
+
+
+    postCaptionPromise.success( function(returned_caption) {
+
+      if (returned_caption.title == null) {
+        $('.error-message').text(returned_caption.errors[0])
+      }
+      else {
+        $('.new_caption').hide()
+        $('.error-message').toggle()
+        $('.captions-list').prepend('<li>' + returned_caption.title + '</li>')
+      }
+
+    })
 
   })
 

@@ -1,16 +1,19 @@
-<%= @media.each do |medium| %>
+<% @media.each do |medium| %>
 
 <%= image_tag medium.s3_media_loc.to_s %><br/>
 
+  <div class="error-message"></div>
 
   <%= form_for medium.captions.new, url: medium_captions_path(medium) do |f| %>
     <%= f.text_area :title %>
     <br/>
-    <%= f.submit "Submit", class: "caption-submitter" %>
-  <% end %>
-  <% medium.captions.each do |caption| %>
-    <%= caption.title %><br/>
+    <%= f.submit "Submit", class: "caption-submitter", data: {medium_id: medium.id} %>
   <% end %>
 
+    <ul class='captions-list'>
+    <% medium.captions.each do |caption| %>
+      <li><%= caption.title %></li>
+    <% end %>
+    </ul>
 
 <% end %>

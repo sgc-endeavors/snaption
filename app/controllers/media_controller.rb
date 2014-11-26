@@ -1,6 +1,10 @@
 class MediaController < ApplicationController
   def index
-    @media = Medium.all
+    if params[:selected]
+      @media = Medium.where(id: params[:selected])
+    else
+      @media = Medium.all
+    end
   end
 
   def new
@@ -10,7 +14,7 @@ class MediaController < ApplicationController
   def create
     @medium = Medium.new(allowed_params.merge(user_id: kenny_loggins.id))
     @medium.save
-    redirect_to new_medium_caption_path(@medium)
+    redirect_to media_path(selected: @medium.id)
   end
 
 
