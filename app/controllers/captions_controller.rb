@@ -10,9 +10,9 @@ class CaptionsController < ApplicationController
     end
   end
 
-  def new
-    @medium = Medium.find(params[:medium_id])
-  end
+  # def new
+  #   @medium = Medium.find(params[:medium_id])
+  # end
 
 
 end

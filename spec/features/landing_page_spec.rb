@@ -23,12 +23,7 @@ feature 'landing page' do
 
   scenario 'a registered user can login' do
     user = create_user
-    visit '/'
-    within('.navbar') do
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: user.password
-      click_on 'Login'
-    end
+    login_a_user(user)
     expect(page).to have_content("Welcome #{user.email}")
     within('.navbar') do
       expect(page).to have_link('Add Media')
